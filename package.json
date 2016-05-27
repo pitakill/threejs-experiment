@@ -11,10 +11,16 @@
     "coffee-script": "^1.10.0",
     "eslint": "^2.10.2",
     "parallelshell": "^2.0.0",
-    "pug": "^2.0.0-alpha8"
+    "pug": "^2.0.0-alpha8",
+    "pug-cli": "^1.0.0-alpha5"
   },
   "scripts": {
-    "start": "browser-sync start --server --files 'dist/*.{css,js}'"
+    "build:html": "pug -w -o dist src/index.jade",
+    "build:js": "coffee -o dist -w -c src/main.coffee",
+    "build": "parallelshell 'npm run build:html' 'npm run build:js'",
+    "server": "browser-sync start -s 'dist' -f 'dist' --ss 'node_modules/three/build/'",
+    "postinstall": "parallelshell 'npm run build' 'npm run server'"
+    "start": "parallelshell 'npm run build' 'npm run server'"
   },
   "author": "",
   "license": "MIT"
