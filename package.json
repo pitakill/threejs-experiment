@@ -1,0 +1,21 @@
+{
+  "name": "threejs-experiment",
+  "version": "0.0.1",
+  "description": "Three.js experiment",
+  "main": "index.js",
+  "dependencies": {
+    "three": "^0.77.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.12.8",
+    "coffee-script": "^1.10.0",
+    "eslint": "^2.10.2",
+    "parallelshell": "^2.0.0",
+    "pug": "^2.0.0-alpha8"
+  },
+  "scripts": {
+    "start": "browser-sync start --server --files 'dist/*.{css,js}'"
+  },
+  "author": "",
+  "license": "MIT"
+}
