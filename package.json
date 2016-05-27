@@ -19,7 +19,7 @@
     "build:js": "coffee -o dist -w -c src/main.coffee",
     "build": "parallelshell 'npm run build:html' 'npm run build:js'",
     "server": "browser-sync start -s 'dist' -f 'dist' --ss 'node_modules/three/build/'",
-    "postinstall": "parallelshell 'npm run build' 'npm run server'"
+    "postinstall": "parallelshell 'npm run build' 'npm run server'",
     "start": "parallelshell 'npm run build' 'npm run server'"
   },
   "author": "",
