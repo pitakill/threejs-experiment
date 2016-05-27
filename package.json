@@ -10,14 +10,16 @@
     "browser-sync": "^2.12.8",
     "coffee-script": "^1.10.0",
     "eslint": "^2.10.2",
+    "node-sass": "^3.7.0",
     "parallelshell": "^2.0.0",
     "pug": "^2.0.0-alpha8",
     "pug-cli": "^1.0.0-alpha5"
   },
   "scripts": {
+    "build:css": "node-sass -w -o dist src/styles.sass",
     "build:html": "pug -w -o dist src/index.jade",
     "build:js": "coffee -o dist -w -c src/main.coffee",
-    "build": "parallelshell 'npm run build:html' 'npm run build:js'",
+    "build": "parallelshell 'npm run build:css' 'npm run build:html' 'npm run build:js'",
     "server": "browser-sync start -s 'dist' -f 'dist' --ss 'node_modules/three/build/'",
     "postinstall": "parallelshell 'npm run build' 'npm run server'",
     "start": "parallelshell 'npm run build' 'npm run server'"
